@@ -1,9 +1,8 @@
 <template>
   <div class="section">
-    <p class="title has-text-left">
-      <b-icon icon="chart-pie" size="is-large" />&nbsp;Dashboard
+    <p class="title has-text-centered">
+      Dashboard
     </p>
-    <br>
     <p class="has-text-centered">Welcome to jubelang</p>
     <!-- <div class="columns">
       <div class="column">

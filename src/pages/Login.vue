@@ -5,7 +5,11 @@
         <div class="flat-card has-background-white">
           <div class="card-content">
             <!-- <img src="../logo"> -->
-            <img style="margin: auto; display: block" width="100" src="../assets/logo.jpg" alt />
+            <!-- <img style="margin: auto; display: block" width="100" src="../assets/logo.jpg" alt /> -->
+            <h3 class="has-text-centered title has-text-info">
+
+            <b-icon class="logo" type="is-info" icon="chart-pie" size="is-large" /> JUBELANG
+            </h3>
             <br />
             <div class="content">
               <b-field label="Username" style="text-align: left ">

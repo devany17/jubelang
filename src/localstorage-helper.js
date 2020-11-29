@@ -2,7 +2,7 @@ var jwt = require('jsonwebtoken');
 
 
 const BASE_URL_KEY = 'baseUrl'
-const TOKEN_KEY = 'peminatan-token'
+const TOKEN_KEY = 'jubelang-token'
 const DATA_USER_KEY = 'data_user'
 const DATA_MENU_KEY = 'data_menu'
 const COMPANY_KEY = 'company'

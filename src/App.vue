@@ -2,11 +2,11 @@
   <div>
     <div id="app">
       <!-- Nabvar -->
-      <b-navbar type="is-info">
+      <b-navbar type="is-info"  v-if="isLoggedIn">
         <template slot="brand">
-          <b-navbar-item tag="router-link" :to="{ path: '/' }">Admin Area</b-navbar-item>
+          <b-navbar-item tag="router-link" :to="{ path: '/' }"><b-icon class="logo" icon="chart-pie"  />&nbsp;&nbsp;&nbsp;Admin Area</b-navbar-item>
         </template>
-        <template slot="end" v-if="isLoggedIn">
+        <template slot="end">
           <b-navbar-item tag="div">
             <div class="buttons">
               <b-button type="is-light" size="is-small" icon-right="logout" @click="logout">Log Out</b-button>
@@ -54,5 +54,8 @@ export default {
 }
 hr{
   background-color: #6e6e6e;
+}
+.logo{
+  transform: rotate(45deg);
 }
 </style>
