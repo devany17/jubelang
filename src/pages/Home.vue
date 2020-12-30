@@ -1,44 +1,76 @@
 <template>
-  <div class="section">
-    <p class="title has-text-centered">
-      Dashboard
-    </p>
-    <p class="has-text-centered">Welcome to jubelang</p>
-    <!-- <div class="columns">
-      <div class="column">
-        <router-link tag="div" to="/peminatan" class="has-background-danger menu">
-          <b-icon size="is-large" icon="book-open" />
-          <p class="has-text-centered">Peminatan</p>
-        </router-link>
+  <div>
+    <section class="container">
+      <div class="section">
+        <p class="title has-text-centered">Dashboard</p>
+        <p class="has-text-centered">Welcome to jubelang</p>
+        <br />
+        <section>
+          <div class="columns is-multiline is-centered">
+            <div
+              v-for="item in menu"
+              :key="item.name"
+              tag="div"
+              :to="item.path"
+              class="column is-4"
+            >
+              <router-link
+                tag="div"
+                :class="`is-padding card has-background-info-dark`"
+                :to="item.path"
+              >
+                <div class="section">
+                  <a class="title is-4 has-text-white has-text-centered is-block">
+                    <b-icon size="is-large" :icon="item.icon"></b-icon>
+                    <br />
+                    {{item.name}}
+                  </a>
+                </div>
+              </router-link>
+            </div>
+          </div>
+        </section>
       </div>
-      <div class="column">
-        <router-link tag="div" to="/pengguna" class="has-background-success menu">
-          <b-icon size="is-large" icon="account-group" />
-          <p class="has-text-centered">Pengguna</p>
-        </router-link>
-      </div>
-      <div class="column">
-        <router-link tag="div" to="/info" class="has-background-grey-light menu">
-          <b-icon size="is-large" icon="information-variant" />
-          <p class="has-text-centered">Hasil Rekomendasi</p>
-        </router-link>
-      </div>
-    </div> -->
+    </section>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      menu: [
+        {
+          path: "/member",
+          name: "Member",
+          color: "danger-dark",
+          icon: "account-group"
+        },
+        {
+          path: "/kategori",
+          name: "Kategori",
+          color: "warning-dark",
+          icon: "view-dashboard"
+        },
+        {
+          path: "/lelang",
+          name: "Lelang",
+          color: "success-dark",
+          icon: "gavel"
+        },
+        {
+          path: "/transaksi",
+          name: "Transaksi",
+          color: "info-dark",
+          icon: "chart-areaspline"
+        },
+        {
+          path: "/password",
+          name: "Password",
+          color: "primary-dark",
+          icon: "form-textbox-password"
+        }
+      ]
+    };
+  }
+};
 </script>
-<style scoped>
-.menu {
-  padding: 4rem;
-  color: white !important;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-  font-size: 15pt
-}
-.menu:hover {
-  box-shadow: inset 0 0 0 2000px rgba(255, 255, 255, 0.144);
-}
-</style>

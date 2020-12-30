@@ -7,8 +7,7 @@
             <!-- <img src="../logo"> -->
             <!-- <img style="margin: auto; display: block" width="100" src="../assets/logo.jpg" alt /> -->
             <h3 class="has-text-centered title has-text-info">
-
-            <b-icon class="logo" type="is-info" icon="chart-pie" size="is-large" /> JUBELANG
+              <b-icon class="logo" type="is-info" icon="chart-pie" size="is-large" />JUBELANG
             </h3>
             <br />
             <div class="content">
@@ -50,7 +49,7 @@ import { urlEncoded } from "../function-helper";
 export default {
   data() {
     return {
-      username: "6969",
+      username: "admin",
       password: "master",
       isLoading: false
     };
@@ -69,8 +68,8 @@ export default {
           grant_type: "password"
         };
 
-        const username = "skripsi-client";
-        const password = "skripsi-secret";
+        const username = "jubelang-client";
+        const password = "jubelang-secret";
 
         const token = Buffer.from(`${username}:${password}`, "utf8").toString(
           "base64"
@@ -83,33 +82,16 @@ export default {
             }
           })
           .then(res => {
-            let token = res.data.access_token;
-            this.axios
-              .get("/api/role", {
-                params: {
-                  access_token: token
-                }
-              })
-              .then(res => {
-                if (res.data.message == "ROLE_ADMIN") {
-                  this.$store.dispatch("login/login", token);
-                  this.$buefy.toast.open({
-                    duration: 1000,
-                    message: "Login Success",
-                    type: "is-light",
-                    position: "is-top"
-                  });
-                  this.$router.push("/");
-                } else{
-                   this.$buefy.toast.open({
-                    duration: 1000,
-                    message: "Access Denied",
-                    type: "is-danger",
-                    position: "is-top"
-                  });
-                }
-                this.isLoading = false;
-              });
+            this.$store.dispatch("login/login", token);
+            this.$buefy.toast.open({
+              duration: 1000,
+              message: "Login Success",
+              type: "is-light",
+              position: "is-top"
+            });
+            this.$router.push("/");
+
+          
           })
           .catch(e => {
             this.$buefy.toast.open({

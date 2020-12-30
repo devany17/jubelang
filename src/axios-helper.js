@@ -4,7 +4,7 @@ import router from './router'
 import { getToken, getBaseUrl } from './localstorage-helper'
 
 let myAxios = axios.create();
-let url = 'https://skripsi-apps.herokuapp.com'
+let url = 'https://jubelang.herokuapp.com'
 let token = getToken()
 
 if (token) {
