@@ -26,7 +26,12 @@
                   expanded
                 ></b-input>
               </b-field>
-              <b-field horizontal label="Password Konfirmasi">
+              <b-field
+                horizontal
+                label="Password Konfirmasi"
+                :type="newPassword != retypePassword? 'is-danger': 'is-success'"
+                :message="newPassword != retypePassword? 'Password tidak cocok': 'Password cocok'"
+              >
                 <b-input
                   type="password"
                   placeholder="******"
@@ -40,7 +45,7 @@
               <b-field horizontal>
                 <!-- Label left empty for spacing -->
                 <p class="control">
-                  <button class="button is-primary">Update Password</button>
+                  <b-button :loading="isLoading" @click="updatePassword()" type="is-primary">Update Password</b-button>
                 </p>
               </b-field>
             </section>
@@ -57,8 +62,50 @@ export default {
       isLoading: false,
       oldPassword: "",
       newPassword: "",
-      retypePassword: ""
+      retypePassword: null
     };
+  },
+  methods: {
+    updatePassword() {
+      this.isLoading= true,
+
+      this.axios
+        .post(
+          "/api/admin/new/password",
+          {},
+          {
+            params: {
+              access_token: this.$store.state.login.token,
+              password: this.oldPassword,
+              newPassword: this.newPassword
+            }
+          }
+        )
+        .then(res => {
+          this.$buefy.toast.open({
+            duration: 1000,
+            message: res.data.message,
+            type: "is-success",
+            position: "is-top"
+          });
+          this.clear();
+          this.isLoading = false;
+        })
+        .catch(e => {
+          this.isLoading = false;
+          this.$buefy.toast.open({
+            duration: 1000,
+            message: "Error",
+            type: "is-danger",
+            position: "is-top"
+          });
+        });
+    },
+    clear() {
+      this.oldPassword = "";
+      this.newPassword = "";
+      this.retypePassword = "";
+    }
   }
 };
 </script>

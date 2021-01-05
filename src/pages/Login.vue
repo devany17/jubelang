@@ -82,7 +82,8 @@ export default {
             }
           })
           .then(res => {
-            this.$store.dispatch("login/login", token);
+            let userToken = res.data.access_token
+            this.$store.dispatch("login/login", userToken);
             this.$buefy.toast.open({
               duration: 1000,
               message: "Login Success",
