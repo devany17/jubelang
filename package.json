@@ -13,8 +13,10 @@
   "dependencies": {
     "axios": "^0.19.2",
     "buefy": "^0.9.4",
+    "debounce": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "vue": "^2.5.2",
+    "vue-numeric": "^2.3.0",
     "vue-router": "^3.0.1",
     "vuex": "^3.3.0"
   },

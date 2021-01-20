@@ -22,9 +22,10 @@
         </div>
         <b-table :data="lelang" :loading="isLoading">
           <p slot="empty" v-if="!isLoading" class="has-text-grey has-text-centered">Data tidak ditemukan</p>
-          <b-table-column label="Produk" centered v-slot="props">{{props.row.produk}}</b-table-column>
-          <b-table-column label="Kategori" centered v-slot="props">{{props.row.kategori}}</b-table-column>
-          <b-table-column label="Toko" centered v-slot="props">{{props.row.storeName}}</b-table-column>
+          <b-table-column label="ID" centered v-slot="props">{{props.row.idItem}}</b-table-column>
+          <b-table-column label="Produk" cell-class="is-capitalized" v-slot="props">{{props.row.produk}}</b-table-column>
+          <b-table-column label="Kategori" cell-class="is-capitalized" v-slot="props">{{props.row.kategori}}</b-table-column>
+          <b-table-column label="Toko" cell-class="is-capitalized" v-slot="props">{{props.row.storeName}}</b-table-column>
           <b-table-column label="Status" centered v-slot="props">{{props.row.status}}</b-table-column>
           <b-table-column label="Bid" numeric v-slot="props">
             <numeric :value="props.row.ob" />
