@@ -27,9 +27,8 @@
           <b-table-column label="Kategori" cell-class="is-capitalized" v-slot="props">{{props.row.kategori}}</b-table-column>
           <b-table-column label="Toko" cell-class="is-capitalized" v-slot="props">{{props.row.storeName}}</b-table-column>
           <b-table-column label="Status" centered v-slot="props">{{props.row.status}}</b-table-column>
-          <b-table-column label="Bid" numeric v-slot="props">
-            <numeric :value="props.row.ob" />
-          </b-table-column>
+          <b-table-column label="Pemenang" cell-class="is-capitalized" v-slot="props" centered>{{props.row.winner || '-'}}</b-table-column>
+
           <b-table-column label="Action" centered v-slot="props">
             <b-button
               size="is-small"
